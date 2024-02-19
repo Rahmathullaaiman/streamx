@@ -1,0 +1,91 @@
+.sidebar {
+  margin-top: 4%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: #19171c;
+  color: white;
+  transition: width 0.3s ease;
+  overflow-y: auto; /* Enable vertical scrolling when content exceeds the max height */
+}
+
+.sidebar.collapsed {
+  width: 83px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #ccc;
+}
+
+.sidebar-header i {
+  margin-right: 10px;
+}
+
+.sidebar-content {
+  padding: 10px;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.sidebar {
+  scrollbar-width: none;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; 
+}
+
+.user-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  margin: 0;
+  color: #ccc;
+  font-size: 16px;
+}
+
+.user-game {
+  margin: 0;
+  color: #ccc;
+}
+
+.user-viewers {
+  margin: 0;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.live-dot {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.user-info.collapsed .user-details {
+  display: none;
+}
