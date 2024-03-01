@@ -3,8 +3,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 95vh; 
+    height: 70vh; 
     margin-left: -5%;
+    margin-top: 2.8%;
   }
   
   .video-player {
@@ -14,7 +15,7 @@
   }
   
   .video-frame {
-    width: 102%; /* Ensure the iframe takes the full width of its container */
-    height: 500px; /* Let the height adjust proportionally */
+    width: 102%; 
+    height: 400px;
   }
   

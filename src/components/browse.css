@@ -1,0 +1,41 @@
+.browse-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 4%;
+    margin-left: 17%;
+  }
+  
+  .categories {
+    margin-top: 20px;
+  }
+  
+  .categories h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .categories-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+  
+  .categories-list li {
+    margin-right: 10px;
+   
+  }
+  
+  .categories-list li:last-child {
+    margin-right: 0;
+  }
+  
+  .categories-list li button {
+    padding: 10px 80px;
+    background-color:black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
