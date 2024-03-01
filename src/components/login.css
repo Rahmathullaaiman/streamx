@@ -168,7 +168,7 @@ input {
 
 .overlay-left {
 	transform: translateX(-20%);
-    /* background: url('../Assest/wilmer-martinez-Lme2Ye2jVo8-unsplash.jpg'); */
+    background: url('../Assest/wilmer-martinez-Lme2Ye2jVo8-unsplash.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -183,7 +183,7 @@ input {
 .overlay-right {
 	right: 0;
 	transform: translateX(0);
-    /* background: url('../Assest/1068308.jpg'); */
+    background: url('../Assest/1068308.jpg');
 }
 
 .container.right-panel-active .overlay-right {

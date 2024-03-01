@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav className="navbar" style={{ backgroundColor: 'black', position: 'fixed', width: '100%', zIndex: '100' }}>
       <div className="navbar-links-left">
-        <Link to="" className="navbar-link"><i className="fa-brands fa-twitch fa-2x ms-4"></i></Link>
+        <Link to="/" className="navbar-link"><i className="fa-brands fa-twitch fa-2x ms-4"></i></Link>
         <Link to="" className="navbar-link ms-5 mt-5 fw-bolder">Following</Link>
         <Link to="/browse" className="navbar-link ms-5 mt-5 fw-bolder">Browse</Link>
       </div>

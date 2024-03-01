@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './userhome.css'
 import Navbar from './Navbar';
+import demovideo from '../Assest/background_video.mp4'
 
 
 const Userhome = () => {
@@ -78,12 +79,158 @@ const Userhome = () => {
     <div className="sidebar-content">
     
     <div  className={`user-info ${isSideExpanded2 ? '' : 'collapsed2'}`}>
-      <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-      <div className="user-details">
-        <p style={{fontSize:"20px"}} className="user-name fw-bolder">Abhijith</p>
-        <p className="user-game">Playing: Pubg</p>
-        <p className="user-viewers">Watching 1.2k<span className="live-dot"></span></p>
-      </div>
+    <div className="chatbar-content">
+          <div className="messages-container">
+           
+              <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div>
+                 <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div> <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div> <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div> <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div> <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div> <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div> <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div> <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div> <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div> <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div> <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div> <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div> <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div> <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div> <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div> <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div> <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div> <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div> <div  className="message">
+                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
+                <div className="message-content">
+                  <p className="user-message">
+                    <span className="user-name">Aiman</span>: Hi How are you
+                  </p>
+                </div>
+              </div>
+            
+          </div>
+          <div className="input-container">
+            <input type="text" placeholder="Type your message..." className="chat-input" />
+            <button className="send-button">Send</button>
+          </div>
+        </div>
     </div> 
     </div>
   </div>
@@ -91,13 +238,13 @@ const Userhome = () => {
         <main>
           <section id="one">
             <div className="inner-content">
-            {/* <video autoPlay loop style={{
+            <video autoPlay loop style={{
               height:'100%',
               width:'100%',
               margin:'10px'
             }}>
-    <source src= type="video/mp4"/>  
-  </video> */}
+    <source src={demovideo } type="video/mp4"/>  
+  </video>
             </div>
           </section>
          
