@@ -1,0 +1,130 @@
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 70px;
+    width: 80px;
+    bottom: 0;
+    background-color: #333333;
+    transition: 300ms all linear;
+    z-index: 99;
+}
+.side-expanded .sidebar,
+.side-hovered .sidebar {
+    width: 250px;
+}
+
+.icon+ span {
+    white-space: pre;
+    display: none;
+}
+.toggler{
+   background-color: #f60303;
+   width: 100%;
+    color: white;
+    font-size: 30px;
+}
+main section {
+ 
+    height: calc(100vh - 58px);
+    margin: 60px;
+    padding-top: 10px;
+    padding-left: 10px;
+    transition: 300ms all linear;
+}
+.side-expanded main section,
+.side-hovered main section {
+    padding-left: 180px;
+}
+main section:nth-child(even){
+    background-color: #eee;
+}
+.inner-content {
+    padding:10px 40px 0px 20px;
+}
+
+
+.user-info {
+    margin: 6px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; 
+  }
+  
+  .user-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .user-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .user-name {
+    margin: 0;
+    color: #ccc;
+    font-size: 16px;
+  }
+  
+  .user-game {
+    margin: 0;
+    color: #ccc;
+  }
+  
+  .user-viewers {
+    margin: 0;
+    color: #ccc;
+    font-size: 14px;
+  }
+  
+  .live-dot {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 5px;
+  }
+  
+.user-info.collapsed .user-details {
+    display: none;
+  }
+  
+  /* chatbar */
+  .sidebar2{
+    position: fixed;
+    right: 0;
+    top: 70px;
+    width: 80px;
+    bottom: 0;
+    background-color: #333333;
+    transition: 300ms all linear;
+    z-index: 99;
+}
+.side-expanded2 .sidebar2,
+.side-hovered2 .sidebar2{
+    width: 250px;
+}
+
+.toggler2{
+   background-color: #f60303;
+   width: 100%;
+    color: white;
+    font-size: 30px;
+}
+main section {
+    height: calc(100vh - 58px);
+    margin: 40px;
+    padding-top: 10px;
+    padding-right: 10px;
+    transition: 300ms all linear;
+}
+.side-expanded2 main section,
+.side-hovered main section {
+    padding-right: 480px;
+}
+main section:nth-child(even){
+    background-color: #eee;
+}
