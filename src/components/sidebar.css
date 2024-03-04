@@ -1,0 +1,61 @@
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 70px;
+    bottom: 0;
+    background-color: #303030;
+    transition: 300ms all linear;
+    z-index: 99;
+}
+.sidebar-content{
+  overflow: scroll;
+  height: 560px;
+}
+.sidebar-content::-webkit-scrollbar{
+  width: 0;
+}
+.user-info {
+    margin: 6px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; 
+  }
+  
+  .user-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .user-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .user-name {
+    margin: 0;
+    color: #ccc;
+    font-size: 16px;
+  }
+  
+  .user-game {
+    margin: 0;
+    color: #ccc;
+  }
+  
+  .user-viewers {
+    margin: 0;
+    color: #ccc;
+    font-size: 14px;
+  }
+  
+  .live-dot {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 5px;
+  }
+  

@@ -1,0 +1,89 @@
+body
+.livediv{
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
+  }
+.video-div{
+    margin-top: 10px;
+}
+.video-div video{
+margin-left: -50px;
+  height: 450px;
+  width: 100%;
+}
+.carousal-userr{
+  color: rgb(238, 238, 238);
+  display: flex;
+  background-color: rgb(28, 26, 26);
+  margin: -5px 0px 0px -200px;
+  height: 150px;
+  width:78%;
+}
+.videolivediv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.user-imagee{
+  border: 3px solid red;
+  border-radius: 50px;
+}
+.carousal-userimg{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -20px;
+}
+.live-tagein-img{
+  margin: -10px 0px 0px -5px;
+background-color: red;
+font-size: 20px;
+border-radius: 5px;
+padding: 0px 6px 0px 6px;
+}
+
+.fpsshooter{
+margin: 5px;
+height: 25px;
+font-size: 14px;
+font-weight: normal;
+background-color: #3e4246;
+color: white;
+border-radius: 10px;
+padding:3px 9px 3px 9px;
+}
+.carousal-userdetails{
+  display: flex;
+justify-content: space-between;
+width: 100%;
+
+}
+
+.followbtn{
+  color: white;
+  background-color: #6d2aff;
+  padding: 2px 10px 2px 10px;
+  border-radius: 10px;
+}
+.subbtn{
+  color: white;
+  background-color: #ff2a2a;
+  padding: 2px 10px 2px 10px;
+  border-radius: 10px;
+}
+.viewersdiv{
+  display: flex;
+  justify-content: space-evenly;
+}
+.viewersdiv h5{
+  color: red;
+  font-size: 18px;
+}

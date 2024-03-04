@@ -75,7 +75,10 @@ input {
 	transition: all 0.6s ease-in-out;
     background: #000000;
 }
-
+.inputfield{
+	margin: 10px;
+	padding: 10px;
+}
 .sign-in-container {
 	left: 0;
 	width: 50%;
@@ -173,7 +176,7 @@ input {
     background-size: cover;
 }
 .overlay-left h1{
-    color: #000000;
+    color: #ffffff;
 }
 .container.right-panel-active .overlay-left {
 	transform: translateX(0);
@@ -233,6 +236,7 @@ footer a {
 
 .signupghost2,.signupghost{
     margin-top: 30px;
+	outline: none;
 }
 
 .button2 {
@@ -248,7 +252,7 @@ footer a {
     border-radius: 0.5em;
     background: #e8e8e8;
     border: 1px solid #e8e8e8;
-    
+    outline: none;
   }
   
   .button2:active {
@@ -315,5 +319,21 @@ footer a {
     color: #fff;
     border: none;
     cursor: pointer;
+	outline: none;
   }
   
+  .signupghost2:hover{
+	background-color: rgb(20, 137, 20);
+	font-size: 20px;
+  }
+  .signupghost:hover{
+	background-color: rgb(20, 137, 20);
+	font-size: 20px;
+  }
+  .backtohome{
+	color: white;
+	text-decoration: none;
+  }
+  .backtohome:hover{
+	text-decoration: underline;
+  }

@@ -1,0 +1,41 @@
+.main-div{
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+   
+}
+.carousel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+height: 500px;
+width: 100%;
+}
+
+.Carousel-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    width: 40rem;
+    margin: 50px 0px 0px 0px;    
+}
+.Carousel-item video{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    width: 100%;
+    margin-left: 750px;
+}
+.carousal-user{
+    color: white;
+    margin: 200px;
+    margin-left: -160px;
+    display: flex;
+    background-color: rgb(36, 32, 32);
+    height: 348px;
+}
+.carousel-indicators button{
+    display: none;
+}

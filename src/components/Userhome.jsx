@@ -1,256 +1,58 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './userhome.css'
-import Navbar from './Navbar';
-import demovideo from '../Assest/background_video.mp4'
+import demovideo from '../Assest/sample2.mp4'
+import VideoCarousal from './VideoCarousal';
+import Homecards from './Homecards';
+import LiveVideo from './LiveVideo';
+import { useNavigate } from 'react-router-dom';
 
-
-const Userhome = () => {
-  const [isSideExpanded, setIsSideExpanded] = useState(false);
-  const [isSideHovered, setIsSideHovered] = useState(false);
-  const [isSideHovered2, setIsSideHovered2] = useState(false);
-  const [isSideExpanded2, setIsSideExpanded2] = useState(false);
-  
-  const toggleSide = () => {
-    setIsSideExpanded((prev) => !prev);
-  };
-
-  const handleMouseOver = () => {
-    if (isSideExpanded) {
-      // do nothing
-    } else {
-      setIsSideHovered(true);
-    }
-  };
-
-  const handleMouseOut = () => {
-    if (isSideExpanded) {
-      // do nothing
-    } else {
-      setIsSideHovered(false);
-    }
-  };
-
-  const toggleSide2 = () => {
-    setIsSideExpanded2((prev) => !prev);
-  };
-
-  const handleMouseOver2 = () => {
-    if (isSideExpanded2) {
-      // do nothing
-    } else {
-      setIsSideHovered2(true);
-    }
-  };
-
-  const handleMouseOut2 = () => {
-    if (isSideExpanded2) {
-      // do nothing
-    } else {
-      setIsSideHovered2(false);
-    }
-  };
-
+const Userhome = ({ sidebarWidth }) => {
+const [islive,setislive] = useState(true)
+const [isexpanded,setisexpanded] = useState(false)
+const [existinguser,setexistinguser] = useState({})
+const navigate= useNavigate()
+   
+useEffect(()=>{
+  if(sidebarWidth){
+    setisexpanded(true)
+  }
+  else{
+    setisexpanded(false)
+  }
+})
+useEffect(()=>{
+  if(sessionStorage.getItem('existinguser')){
+    setexistinguser(JSON.parse(sessionStorage.getItem('existinguser')))
+  }
+},[])
+console.log(existinguser);
   return (
  <>
-      <div className={`App ${isSideExpanded ? 'side-expanded' : ''} `}>
-      <Navbar/>
-        <div className="sidebar" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-          <div className='d-flex justify-content-end'>
-          <button className='toggler' onClick={toggleSide}><i class="fa-solid fa-arrow-left"></i></button>
-          </div>
-          <div className="sidebar-content">
-          
-          <div  className={`user-info ${isSideExpanded ? '' : 'collapsed'}`}>
-            <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-            <div className="user-details">
-              <p style={{fontSize:"20px"}} className="user-name fw-bolder">Abhijith</p>
-              <p className="user-game">Playing: Pubg</p>
-              <p className="user-viewers">Watching 1.2k<span className="live-dot"></span></p>
-            </div>
-          </div>
-          </div>
-        </div>
-        <div className={`App ${isSideExpanded2 ? 'side-expanded2' : ''} `}>
-  
-  <div className="sidebar2" onMouseOver={handleMouseOver2} onMouseOut={handleMouseOut2}>
-    <div className='d-flex justify-content-end'>
-    <button className='toggler' onClick={toggleSide2}><i class="fa-solid fa-arrow-right"></i></button>
-    </div>
-    <div className="sidebar-content">
-    
-    <div  className={`user-info ${isSideExpanded2 ? '' : 'collapsed2'}`}>
-    <div className="chatbar-content">
-          <div className="messages-container">
-           
-              <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div>
-                 <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div> <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div> <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div> <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div> <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div> <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div> <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div> <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div> <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div> <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div> <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div> <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div> <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div> <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div> <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div> <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div> <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div> <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div> <div  className="message">
-                <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User" className="user-image" />
-                <div className="message-content">
-                  <p className="user-message">
-                    <span className="user-name">Aiman</span>: Hi How are you
-                  </p>
-                </div>
-              </div>
-            
-          </div>
-          <div className="input-container">
-            <input type="text" placeholder="Type your message..." className="chat-input" />
-            <button className="send-button">Send</button>
-          </div>
-        </div>
-    </div> 
-    </div>
-  </div>
-  </div>
-        <main>
-          <section id="one">
-            <div className="inner-content">
-            <video autoPlay loop style={{
-              height:'100%',
-              width:'100%',
-              margin:'10px'
-            }}>
-    <source src={demovideo } type="video/mp4"/>  
-  </video>
-            </div>
-          </section>
-         
-        </main>
+     
+     
       
-      </div>
+     {!islive? 
+      <main style={{width: `calc(100% - ${sidebarWidth}px)`,backgroundColor:'black'}}>
+      <section id="onebyone">
+                <div className="inner-content">
+                  <LiveVideo />
+                </div>
+               
+              </section>
+             
+          </main>
+     :<main style={{ marginLeft: `50px`, width: `calc(100% - ${sidebarWidth}px)` }} >
+<section id='one'>
+<div className='inner-content' style={{margin:`${sidebarWidth}?50px:10px`}}><VideoCarousal/></div>
+<div style={{margin:'-280px 0px 50px 0px'}}><Homecards/></div>
+
+</section>
+
+        
+        </main>
+
+     }
+     
 
      
  </>
