@@ -17,7 +17,8 @@ function Navbar() {
         </div>
       </div>
       <div className="navbar-profile">
-        <button className="btn btn-primary me-3">Login</button>
+      <a href="authentication" className="btn btn-primary me-3">Login</a>
+
         <div className="navbar-profile-image">
           <img src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079" alt="User Profile" className="navbar-profile-image" />
         </div>
