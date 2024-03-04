@@ -1,6 +1,6 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
-import './videocarosual.css'
+import './CSS/videocarosual.css'
 import demovideo from '../Assest/background_video.mp4'
 import sample2 from '../Assest/sample2.mp4'
 import sample3 from '../Assest/sample3.mp4'

@@ -1,13 +1,13 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
-import './homecards.css'
+import '../components/CSS/homecards.css'
 
 function Homecards() {
   return (
     <>
 {/* card 1 */}
 <div className='card-holder1'>
-<Card className="card">
+<Card className="card" style={{width:'20rem'}}>
       <Card.Img variant="top" className='cardimg' src="https://images.unsplash.com/photo-1564049489314-60d154ff107d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHViZ3xlbnwwfHwwfHx8MA%3D%3D" alt='ERROR 404'/>
       <Card.Body className='cardbody1'>
       <div>
@@ -24,7 +24,7 @@ function Homecards() {
       </div>   
       </Card.Body>
     </Card>
-    <Card className="card">
+    <Card className="card" style={{width:'20rem'}}>
       <Card.Img variant="top" className='cardimg' src="https://img.freepik.com/free-photo/cool-geometric-triangular-figure-neon-laser-light-great-backgrounds-wallpapers_181624-9331.jpg?size=626&ext=jpg&ga=GA1.1.39574571.1682161142&semt=ais" alt='ERROR 404'/>
       <Card.Body className='cardbody1'>
       <div>
@@ -41,7 +41,7 @@ function Homecards() {
       </div>   
       </Card.Body>
     </Card>
-    <Card className="card">
+    <Card className="card" style={{width:'20rem'}}>
       <Card.Img variant="top" className='cardimg' src="https://img.freepik.com/free-photo/galactic-night-sky-astronomy-science-combined-generative-ai_188544-9656.jpg?size=626&ext=jpg&ga=GA1.1.39574571.1682161142&semt=ais" alt='ERROR 404'/>
       <Card.Body className='cardbody1'>
       <div>
@@ -59,7 +59,7 @@ function Homecards() {
       </Card.Body>
     </Card>
 
-    <Card className="card">
+    <Card className="card" style={{width:'20rem'}}>
       <Card.Img variant="top" className='cardimg' src="https://img.freepik.com/free-photo/illustration-geometric-shapes-with-neon-laser-lights_181624-21281.jpg?size=626&ext=jpg&ga=GA1.1.39574571.1682161142&semt=ais" alt='ERROR 404'/>
       <Card.Body className='cardbody1'>
       <div>

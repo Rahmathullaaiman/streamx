@@ -1,30 +1,32 @@
 
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import LandingPage from './pages/LandingPage';
-import Userlivepage from './pages/Userlivepage';
-import Auth from './components/Auth';
-import Browse from './components/Browse';
-import Game from './components/GAMES/Game';
-import Creative from './components/CREATIVE/Creative';
-import Esports from './components/ESPORTS/Esports';
-import Music from './components/MUSIC/Music';
-import Irl from './components/IRL/Irl';
-import Browsepage from './pages/Browsepage';
+import LandingPage from './pages/Home/LandingPage';
+import Auth from './components/Authentication/Auth';
+import Browsepage from './pages/Browse/Browsepage';
+import Browsegamepage from './pages/Browse/Browsegamepage';
+import BrowseIRLpage from './pages/Browse/BrowseIRLpage';
+import BrowseMusicpage from './pages/Browse/BrowseMusicpage';
+import BrowseCreativepage from './pages/Browse/BrowseCreativepage';
+import BrowseEsportspage from './pages/Browse/BrowseEsportspage';
+import Dashboard from './pages/User/Dashboard';
+import Userlive from './pages/Stream/Userlive';
+
 function App() {
   return (
     <div>
     <Routes>
     <Route path="/" element={<LandingPage/>}/>
     <Route path="/authentication" element={<Auth/>}/>
-    <Route path="/browse" element={<Browse/>}/>
-    <Route path="/profilelive" element={<Userlivepage/>}/>
+    <Route path="/dashboard" element={<Dashboard/>}/>
     <Route path="/browse" element={<Browsepage/>}/>
-    <Route path="/game" element={<Game/>}/>
-    <Route path="/creative" element={<Creative/>}/>
-    <Route path="/esports" element={<Esports/>}/>
-    <Route path="/music" element={<Music/>}/>
-    <Route path="/irl" element={<Irl/>}/>
+    <Route path="/game" element={<Browsegamepage/>}/>
+    <Route path="/creative" element={<BrowseCreativepage/>}/>
+    <Route path="/esports" element={<BrowseEsportspage/>}/>
+    <Route path="/music" element={<BrowseMusicpage/>}/>
+    <Route path="/irl" element={<BrowseIRLpage/>}/>
+    <Route path="/userlive" element={<Userlive/>}/>
+    
     </Routes>
      
     </div>

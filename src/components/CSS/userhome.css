@@ -1,0 +1,127 @@
+
+main section {
+    height:100%;
+    width: 100%;
+    /* background-color: rgb(43, 46, 49); */
+    transition: 300ms all linear;
+}
+.inner-content {
+    padding:0px;
+    margin: 10px 0px 10px 0px;
+    /* background-color: rgb(43, 46, 49); */
+    position: relative;
+    height: 100%;
+}
+
+
+  /* chatbar */
+  .chatbar {
+    background-color: #19171c;
+    color: white;
+    width: 300px;
+    border-radius: 0px;
+    overflow: hidden;
+    transition: ease-in-out .5s;
+    position: fixed;
+    top: 9.5%;
+    right: 0;
+    bottom: 0;
+    z-index: 1000; 
+  }
+  
+  .chatbar.collapsed {
+    width: 50px;
+  }
+  
+  .chatbar-header {
+    padding: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #3e4246;
+  }
+  
+  .chatbar-header i {
+    margin-left: 5px;
+  }
+  
+  .chatbar-content {
+    padding: 12px;
+  }
+  
+  .messages-container {
+    max-height: 500px; 
+    overflow-y: auto; 
+  }
+  
+  .messages-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .user-name {
+    font-weight: bold;
+  }
+  
+  .user-message {
+    margin: 0;
+    color: #ccc;
+  }
+  
+  .input-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 12px;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: #19171c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .chat-input {
+    width: calc(100% - 80px);
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ffffff;
+    color: #3e4246;
+  }
+  
+  .send-button {
+    width: 60px;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #9147ff;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .send-button:hover {
+    background-color: #6d2aff;
+  }
+  #one{
+    width: 100%;
+  }
+  #onebyone{
+    background-color: black;
+  }
+ 
