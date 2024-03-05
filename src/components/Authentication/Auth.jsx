@@ -20,7 +20,7 @@ function Auth() {
     })
     const [user,setUser] = useState({})
     const navigate= useNavigate()
-        
+      console.log(userdata);
     // register
     const handleregister = async (e)=>{
  
@@ -69,7 +69,7 @@ function Auth() {
         const result = await loginAPI(userdata)
         if(result.status == 200){
           alert('login success')
-          sessionStorage.setItem("existinguser",JSON.stringify(result.data))
+        sessionStorage.setItem("existinguser",JSON.stringify(result.data))
         sessionStorage.setItem("token",result.data.access)
         setTimeout(() => {
           navigate('/')
@@ -95,7 +95,7 @@ function Auth() {
         setUser(JSON.parse(sessionStorage.getItem('existinguser')))
       }
     },[])
-    console.log(user.refresh);
+
       const [isSignUpActive, setIsSignUpActive] = useState(false);
     
       useEffect(() => {
