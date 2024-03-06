@@ -5,6 +5,7 @@ import '../components/CSS/chat.css';
 import demovideo from '../Assest/sample2.mp4'
 import Navbar from './Navbar/Navbar';
 import { followUserAPI, likeStreamAPI } from '../services/allapi';
+import { Link } from 'react-router-dom';
 
 
 function LiveVideo() {
@@ -169,7 +170,7 @@ const handlefollow = async()=>{
            <div>
             <button className='btn likebtn' onClick={handleLike}><i class="fa-regular fa-heart"></i></button>
               <button className='m-1 followbtn'  onClick={handlefollow}>follow</button>
-              <button className='m-1 subbtn'>suscribe</button>
+             <Link to={'/payment'}> <button className='m-1 subbtn'>suscribe</button></Link>
            </div>
            <div className='viewersdiv'>
             <h5><i class="fa-solid fa-user"></i> 568</h5>

@@ -12,6 +12,7 @@ import BrowseEsportspage from './pages/Browse/BrowseEsportspage';
 import Dashboard from './pages/User/Dashboard';
 import Userlive from './pages/Stream/Userlive';
 import Admin from './pages/Admin/Admin';
+import Payment from './components/payment/Payment';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
     <Route path="/irl" element={<BrowseIRLpage/>}/>
     <Route path="/userlive" element={<Userlive/>}/>
     <Route path="/admin" element={<Admin/>}/>
+    <Route path="/payment" element={<Payment/>}/>
     </Routes>
      
     </div>
