@@ -90,5 +90,9 @@ width: 100%;
 .followsubdiv{
   display: flex;
   flex-direction: column;
-  margin: 0px 0px 0px 550px;
+  margin: 0px 0px 0px 500px;
+}
+.likebtn{
+  color: red;
+  font-size: 30px;
 }

@@ -4,12 +4,14 @@ import '../components/CSS/sidebar.css'
 import '../components/CSS/chat.css'; 
 import demovideo from '../Assest/sample2.mp4'
 import Navbar from './Navbar/Navbar';
+import { followUserAPI, likeStreamAPI } from '../services/allapi';
 
 
 function LiveVideo() {
   const [islive,setislive] = useState(true)
 const [existinguser,setexistinguser] = useState({})
-
+const [token, setToken] = useState("")
+  
 const [sidebarWidth, setSidebarWidth] = useState(70);
 const chatbarHeaderRef = useRef(null);
 const sidebarRef = useRef(null);
@@ -33,6 +35,63 @@ useEffect(() => {
     chatbarHeader.removeEventListener('click', handleChatbarHeaderClick);
   };
 }, [sidebarWidth]);
+
+useEffect(() => {
+  if (sessionStorage.getItem('existinguser')) {
+    const existinguser = JSON.parse(sessionStorage.getItem('existinguser'));
+    console.log(existinguser);
+    setToken(existinguser.access);
+  }
+}, []);
+
+//console.log(token);
+const handleLike = async()=>{
+  const id = '19';
+  if(token) { 
+  const reqHeader = {
+    "Content-Type":"application/json",
+    "Authorization":`Bearer ${token}`
+  }
+
+  const result = await likeStreamAPI(id,reqHeader)
+  if(result.status == 201){
+    alert('stream liked')
+  }
+  else if(result.status == 200){
+    alert('stream unliked')
+  }
+  else{
+    alert('something went wrong')
+  }
+}
+  else {
+    console.error('Token is empty!');
+  }
+}
+
+const handlefollow = async()=>{
+  const id = '5';
+  if(token) { 
+  const reqHeader = {
+    "Content-Type":"application/json",
+    "Authorization":`Bearer ${token}`
+  }
+
+  const result = await followUserAPI(id,reqHeader)
+  if(result.status == 201){
+    alert('following')
+  }
+  else if(result.status == 200){
+    alert('unfollowed')
+  }
+  else{
+    alert('something went wrong')
+  }
+}
+  else {
+    console.error('Token is empty!');
+  }
+}
   return (
     <>
  <main >
@@ -108,7 +167,8 @@ useEffect(() => {
           </div>
           <div className='followsubdiv'>
            <div>
-              <button className='m-1 followbtn'>follow</button>
+            <button className='btn likebtn' onClick={handleLike}><i class="fa-regular fa-heart"></i></button>
+              <button className='m-1 followbtn'  onClick={handlefollow}>follow</button>
               <button className='m-1 subbtn'>suscribe</button>
            </div>
            <div className='viewersdiv'>

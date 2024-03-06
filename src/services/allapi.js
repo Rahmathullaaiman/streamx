@@ -20,3 +20,14 @@ export const getCategoryAPI = async(id)=>{
 export const addStreamAPI = async(reqBody,reqHeader)=>{
     return await commonAPI("POST",`${BASE_URL}/StreamCreateView/`,reqBody,reqHeader)
 }
+
+//like & unlike  stream
+export const likeStreamAPI = async(stream_id,reqHeader)=>{
+    return await commonAPI("POST",`${BASE_URL}/CreateLike/${stream_id}/`,"",reqHeader)
+}
+
+//FOLLOW
+export const followUserAPI = async(userid,reqHeader)=>{
+    return await commonAPI("POST",`${BASE_URL}/CreateFollower/${userid}/`,"",reqHeader)
+}
+
