@@ -11,6 +11,7 @@ import BrowseCreativepage from './pages/Browse/BrowseCreativepage';
 import BrowseEsportspage from './pages/Browse/BrowseEsportspage';
 import Dashboard from './pages/User/Dashboard';
 import Userlive from './pages/Stream/Userlive';
+import Admin from './pages/Admin/Admin';
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
     <Route path="/music" element={<BrowseMusicpage/>}/>
     <Route path="/irl" element={<BrowseIRLpage/>}/>
     <Route path="/userlive" element={<Userlive/>}/>
-    
+    <Route path="/admin" element={<Admin/>}/>
     </Routes>
      
     </div>

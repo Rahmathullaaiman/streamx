@@ -16,11 +16,11 @@ function Auth() {
         email:"",
         password:"",
         bio:""
-        //image:""
+        //profileimg:""
     })
     const [user,setUser] = useState({})
     const navigate= useNavigate()
-      console.log(userdata);
+      // console.log(userdata);
     // register
     const handleregister = async (e)=>{
  
@@ -42,7 +42,7 @@ function Auth() {
                 password:"",
                 bio:"",
             })
-            console.log(result);
+           
           }
           else{
             alert('failed')
@@ -131,9 +131,7 @@ function Auth() {
             <div className={`form-container ${isSignUpActive ? 'sign-up-container' : 'sign-in-container'}`}>
               <Form>
                 <h1>{isSignUpActive ? 'Create Account' : 'Sign In'}</h1>
-                <div className="social-container">
-                  
-                </div>
+              
                 <span></span>
                 {isSignUpActive && 
             <>

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import './dashboard.css'
+import '../User/dashboard.css'
 import Navbar from '../../components/Navbar/Navbar'
 import addimage from '../../Assest/add-image.png'
 import { addStreamAPI } from '../../services/allapi'
-function Dashboard() {
+
+function Admin() {
     const[preview,setpreview]=useState("")
     const [token, setToken] = useState("")
   
@@ -26,7 +27,12 @@ function Dashboard() {
         }));
       };
     //   url split
-   
+    const embedVideoLink = (e)=>{
+        const {value} = e.target
+        console.log(value.slice(-11));
+        const link = `https://www.youtube.com/embed/${value.slice(-11)}`
+        setStreamDSetails({...streamDetails,url:link})
+      }
     useEffect(() => {
         if (streamDetails.tumbnile) {
           setpreview(URL.createObjectURL(streamDetails.tumbnile))
@@ -66,19 +72,6 @@ function Dashboard() {
               const result = await addStreamAPI( reqBody,reqHeader);
               if (result.status === 201) {
                 alert('stream added successfully');
-               // console.log(result);
-               setStreamDSetails({
-                title:"",
-                description:"",
-                tumbnile:"",
-                url:'',
-                category:''
-               })
-               setpreview("")
-              }
-               else {
-                alert('Something went wrong, try again later');
-                //console.log(result);
                 setStreamDSetails({
                     title:"",
                     description:"",
@@ -87,24 +80,38 @@ function Dashboard() {
                     category:''
                    })
                    setpreview("")
+               // console.log(result);
+              }
+               else {
+                alert('Something went wrong, try again later');
+                setStreamDSetails({
+                    title:"",
+                    description:"",
+                    tumbnile:"",
+                    url:'',
+                    category:''
+                   })
+                   setpreview("")
+                //console.log(result);
               }
            
             
           }
         }
       };
+      
   return (
     <>
-   <Navbar/>
+
     <div className='userpage'>
         <div className='dashboard'>
             <div className='dashtitle hr'>
-                <h3>DASHBOARD</h3>
+                <h3>ADMIN DASHBOARD</h3>
                 <hr />
             </div>
             <div className='livestream'>
                 <div className='livestreamtitle'>
-                    <h3>Fill up the Details to start Streaming</h3>
+                    <h3>Fill up the Details</h3>
                     </div>
                     <div className='startlive'>
                     
@@ -117,7 +124,13 @@ function Dashboard() {
     <input type="input" class="form__field" required="" onChange={(e)=>setStreamDSetails({...streamDetails,description:e.target.value})} value={streamDetails.description}/>
     <label for="name" class="form__label">Description</label>
 </div>
-<div  class="category-div">
+<div class="form__group field">
+    <input type="input" class="form__field" placeholder="URL" required="" onChange={embedVideoLink} value={streamDetails.url}/>
+    <label for="name" class="form__label">URL</label>
+</div>
+
+
+  <div  class="category-div">
       <label className='dropdown' htmlFor="category">Select a category:</label>
       <select id="category" onChange={handleCategoryChange} value={streamDetails.category}>
         <option value="">Select...</option>
@@ -130,7 +143,9 @@ function Dashboard() {
 
 
     </div>
-    <label for="file" class="custum-file-upload">
+
+
+  <label for="file" class="custum-file-upload">
 <div class="addimage">
 <img src={preview?preview:addimage} alt="" style={{width:preview?'100%':""}}/>
 </div>
@@ -138,28 +153,18 @@ function Dashboard() {
 </label>
 
   
-  </form>
-  <button className="startbtn" onClick={handleADDstream}>
-              Start Stream
+</form>
+<button className="startbtn" onClick={handleADDstream}>
+              Add stream
               </button>
-                    </div>
+                </div>
             </div>
         </div>
 
-        <div>
-            <div className='profile'>
-                <div className='profileimg'> 
-                    <img src="https://img.freepik.com/free-photo/rise-humanoids-with-advanced-headgear-generative-ai_8829-2877.jpg?t=st=1709407456~exp=1709411056~hmac=7adbaa5090b05e42b4ca18526547a43004d31360ed6393dd5c64f86fd8832268&w=740" alt='ERROR 404'/>
-                </div>
-                <div>
-                    <h3>sayipp op</h3>
-                    <h5>channel</h5>
-                </div>
-            </div>
-        </div>
+       
     </div>
     </>
   )
 }
 
-export default Dashboard
+export default Admin

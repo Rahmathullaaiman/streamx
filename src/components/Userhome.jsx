@@ -3,12 +3,13 @@ import './CSS/userhome.css'
 import './CSS/sidebar.css'
 import VideoCarousal from './VideoCarousal';
 import Homecards from './Homecards';
-import { useNavigate } from 'react-router-dom';
+import { getallUsersAPI } from './services/allapi';
+import { all } from 'axios';
 
 const Userhome = () => {
-const [islive,setislive] = useState(true)
-const [existinguser,setexistinguser] = useState({})
-const navigate= useNavigate()
+const [existinguser,setexistinguser] = useState([])
+const [allusers,setallusers] = useState([])
+const [existingUserFollowing,setexistingUserFollowing] = useState([])
 const [sidebarWidth, setSidebarWidth] = useState(70);
 const chatbarHeaderRef = useRef(null);
 const sidebarRef = useRef(null);
@@ -19,11 +20,12 @@ useEffect(()=>{
   }
 },[])
 
-
+console.log(existinguser);
 useEffect(() => {
   const chatbarHeader = chatbarHeaderRef.current;
   const sidebar = sidebarRef.current;
 
+// sidebar toggle
   const handleChatbarHeaderClick = () => {
     const newWidth = sidebarWidth === 200 ? 70 : 200;
     setSidebarWidth(newWidth);
@@ -35,6 +37,16 @@ useEffect(() => {
     chatbarHeader.removeEventListener('click', handleChatbarHeaderClick);
   };
 }, [sidebarWidth]);
+
+
+const getusers = async()=>{
+  const result = await getallUsersAPI()
+  setallusers(result.data)
+}
+  useEffect(()=>{
+    getusers()
+    console.log(allusers);
+  })
   return (
  <>
      
@@ -64,9 +76,8 @@ useEffect(() => {
               </div>
          </div>
           <div className="sidebar-content">
-            <div className={`user-info`}>
-              
-          
+            
+              <div className={`user-info`}>
                 <>
                   <img
                     src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079"
@@ -74,13 +85,20 @@ useEffect(() => {
                     className="user-image"
                   />
              {sidebarWidth ==200 &&  <div className="user-details">
+             {allusers.map((item)=>{ 
+                <>
+                        <p style={{fontSize:"20px"}} className="user-name fw-bolder">{item.username}</p>
+                        <p className="user-game">{item.first_name}</p>
+                        <p className="user-viewers">Watching 1.2k<span className="live-dot"></span></p>
+                </>
+            }) }
                <p style={{fontSize:"20px"}} className="user-name fw-bolder">Abhijith</p>
-               <p className="user-game">Playing: Pubg</p>
-               <p className="user-viewers">Watching 1.2k<span className="live-dot"></span></p>
+            
              </div>}
                 </>
               
             </div>
+           
           
              
             
