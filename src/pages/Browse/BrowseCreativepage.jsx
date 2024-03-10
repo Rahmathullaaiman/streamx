@@ -1,10 +1,10 @@
 import React from 'react'
 import Creative from '../../components/Browsee/CREATIVE/Creative'
-
+import './style.css'
 function BrowseCreativepage() {
   return (
     <>
-<div className="home">
+<div className="browsehome">
 <Creative/>
     
 </div>

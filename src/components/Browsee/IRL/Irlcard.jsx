@@ -26,15 +26,17 @@ function Irlcard() {
    },[])
   return (
 <div className='card-holder2'>
-<Row>
+
    {irl.map((item, index) => (
-          <Col key={index}>
-            <Card className='card2' style={{ width: '180px' }}>
+        
+            <Card key={index} className='card2' style={{ width: '180px' }}>
               <Card.Img
                 variant='top'
                 className='cardimg2'
                 src={item.tumbnile} 
                 alt='no image'
+                height={'140px'}
+                width={'300px'}
               />
               <Card.Body className='cardbody2'>
                 <h5>{item.title}</h5>
@@ -52,10 +54,10 @@ function Irlcard() {
         
               </Card.Body>
             </Card>
-          </Col>
+       
         ))}
         
-   </Row>
+  
 </div>
   )
 }

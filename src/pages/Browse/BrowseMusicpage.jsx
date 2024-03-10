@@ -1,10 +1,10 @@
 import React from 'react'
 import Music from '../../components/Browsee/MUSIC/Music'
-
+import './style.css'
 function BrowseMusicpage() {
   return (
     <>
-<div className="home">
+<div className="browsehome">
  <Music/> 
 </div>
     </>

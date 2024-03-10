@@ -8,12 +8,12 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgb(32, 31, 31);
+  background-color:rgb(32, 31, 31) ;
 
 }
 
 .navbar-search {
-  margin-left: 100px;
+  margin-left: 10px;
   display: flex;
   align-items: center;
 }
@@ -23,7 +23,7 @@
   font-size: 19px;
   margin-top: 10px;
   background-color: rgb(32, 31, 31);
-  width: 400px;
+  width: 700px;
   padding: 5px;
   border: 1px solid #ffffff;
   border-radius: 5px;
@@ -34,7 +34,7 @@
 }
 .navbar-magnifier {
   color: rgb(255, 255, 255);
-margin: 8px 0px 0px -30px;
+margin: 8px 0px 0px -40px;
 }
 
 .navbar-profile {
@@ -72,4 +72,40 @@ margin: 8px 0px 0px -30px;
 .navbar-profile button:hover{
   background-color: rgb(91, 36, 192);
   color: rgb(255, 255, 255);
+}
+.searchbtn{
+  color: white;
+  font-size: 28px;
+height: 30px;
+margin-left: -35px;
+background-color:transparent;
+border: none;
+}
+.resultdiv{
+  margin: 70px 0px 0px 10px;
+  z-index: 1000;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.resultdiv2 h2{
+  color: white;
+  margin: 10px;
+}
+.xbtn{
+  margin: 0px 200px 0px 0px;
+  padding: 0px 0px 5px 0px;
+position: absolute;
+right: 0;
+  color: rgb(255, 255, 255);
+  background-color: red;
+  font-size: 30px;
+  width: 50px;
+  border: none;
+  border-radius: 10px;
 }

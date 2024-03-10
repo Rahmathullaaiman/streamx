@@ -13,10 +13,13 @@ import Dashboard from './pages/User/Dashboard';
 import Userlive from './pages/Stream/Userlive';
 import Admin from './pages/Admin/Admin';
 import Payment from './components/payment/Payment';
+import Profile from './pages/User/Profile';
+import UserProfile from './components/User/UserProfile';
+import ChatBar from './pages/User/ChatBar';
 
 function App() {
   return (
-    <div>
+    <div className='app'>
     <Routes>
     <Route path="/" element={<LandingPage/>}/>
     <Route path="/authentication" element={<Auth/>}/>
@@ -29,7 +32,11 @@ function App() {
     <Route path="/irl" element={<BrowseIRLpage/>}/>
     <Route path="/userlive" element={<Userlive/>}/>
     <Route path="/admin" element={<Admin/>}/>
-    <Route path="/payment" element={<Payment/>}/>
+    <Route path="/payment/:showuserid" element={<Payment/>}/>
+    <Route path="/profileupdate" element={<Profile/>}/>
+    <Route path="/userprofile/:showuserid" element={<UserProfile/>}/>
+    <Route path="/livechat" element={<ChatBar/>}/>
+    
     </Routes>
      
     </div>

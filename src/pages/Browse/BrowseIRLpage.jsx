@@ -1,11 +1,11 @@
 import React from 'react'
 import Irl from '../../components/Browsee/IRL/Irl'
-
+import './style.css'
 
 function BrowseIRLpage() {
   return (
     <>
-<div className="home">
+<div className="browsehome">
     <Irl/>
     
 </div>

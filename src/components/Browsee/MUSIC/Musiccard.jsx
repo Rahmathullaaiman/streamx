@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Row,Col } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
-
 import './music.css'
 import { getCategoryAPI } from '../../../services/allapi';
 
@@ -34,6 +33,8 @@ function Musiccard() {
                 className='cardimg2'
                 src={item.tumbnile} 
                 alt='no image'
+                height={'140px'}
+                width={'300px'}
               />
               <Card.Body className='cardbody2'>
                 <h5>{item.title}</h5>

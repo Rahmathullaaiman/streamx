@@ -34,6 +34,8 @@ function Gamecard() {
                 className='cardimg2'
                 src={item.tumbnile} 
                 alt='no image'
+                height={'140px'}
+                width={'300px'}
               />
               <Card.Body className='cardbody2'>
                 <h5>{item.title}</h5>

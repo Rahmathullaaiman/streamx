@@ -1,18 +1,21 @@
 
 main section {
-    height:100%;
+    height:100vh;
     width: 100%;
     /* background-color: rgb(43, 46, 49); */
     transition: 300ms all linear;
 }
 .inner-content {
     padding:0px;
-    margin: 10px 0px 10px 0px;
+    margin: 10px 0px 0px -50px;
     /* background-color: rgb(43, 46, 49); */
     position: relative;
     height: 100%;
 }
+.usercolumn-2{
 
+  margin-left: 50px;
+}
 
   /* chatbar */
   .chatbar {

@@ -1,8 +1,10 @@
-*{
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
+
+.app{
+  height: 100%;
+  width: 100%;
 }
-div{
-  background-color: #00000000;
+
+.app.app::-webkit-scrollbar-width{
+  visibility: hidden;
+  display: none;
 }

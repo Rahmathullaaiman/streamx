@@ -7,7 +7,7 @@ import { addStreamAPI } from '../../services/allapi'
 function Admin() {
     const[preview,setpreview]=useState("")
     const [token, setToken] = useState("")
-  
+    const [existinguser,setExistingUser] = useState([])
   
 
     const[streamDetails,setStreamDSetails]=useState({
@@ -41,12 +41,12 @@ function Admin() {
 
       useEffect(()=>{
         if(sessionStorage.getItem('existinguser')){
-          const existinguser = (JSON.parse(sessionStorage.getItem('existinguser')))
-         // console.log(existinguser);
+          setExistingUser(JSON.parse(sessionStorage.getItem('existinguser')))
+         console.log(existinguser);
           setToken(existinguser.access)
         }
-      },[])
-    //console.log(token);
+      },[existinguser])
+    console.log(token);
 
 
     const handleADDstream = async () => {
@@ -102,9 +102,9 @@ function Admin() {
       
   return (
     <>
-
+<Navbar/>
     <div className='userpage'>
-        <div className='dashboard'>
+        <div className='dashboard'  style={{height:'100vh',width:'100vw'}}>
             <div className='dashtitle hr'>
                 <h3>ADMIN DASHBOARD</h3>
                 <hr />
@@ -113,7 +113,7 @@ function Admin() {
                 <div className='livestreamtitle'>
                     <h3>Fill up the Details</h3>
                     </div>
-                    <div className='startlive'>
+                    <div className='startlive'  style={{marginTop:'30%'}}>
                     
   <form className='fillform'>
   <div class="form__group field">
@@ -154,11 +154,12 @@ function Admin() {
 
   
 </form>
-<button className="startbtn" onClick={handleADDstream}>
-              Add stream
-              </button>
+
                 </div>
             </div>
+            <button className="startbtn"  style={{marginTop:'19%'}} onClick={handleADDstream}>
+              Add stream
+              </button>
         </div>
 
        

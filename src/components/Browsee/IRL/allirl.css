@@ -43,12 +43,16 @@ border: 3.5px solid rgb(0, 255, 132);
 
  /* card-holder2 */
  .card-holder2{
+    height: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 20px;
  }
 .card2{
+    flex-grow: 1;
+    flex-basis: 200;
     height: 200px;
     width: 200px;
 }

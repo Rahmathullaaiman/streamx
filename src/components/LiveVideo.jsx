@@ -47,7 +47,7 @@ useEffect(() => {
 
 //console.log(token);
 const handleLike = async()=>{
-  const id = '19';
+  const id = '4';
   if(token) { 
   const reqHeader = {
     "Content-Type":"application/json",
@@ -71,7 +71,7 @@ const handleLike = async()=>{
 }
 
 const handlefollow = async()=>{
-  const id = '5';
+  const id = '4';
   if(token) { 
   const reqHeader = {
     "Content-Type":"application/json",
@@ -160,7 +160,7 @@ const handlefollow = async()=>{
               <h6>adfvaf|| o7tfouh @b 34t51345</h6>
             <div className='d-flex align-items-center justify-content-center'>  
              <a href="" style={{textDecoration:'none'}} className='text-light'> <h6>pubggg_afena</h6>  </a>   
-            <div className='d-flex ms-5' >
+            <div className='ms-5' >
            <h6 className='fpsshooter'>FPS</h6>
            <h6 className='fpsshooter'>Shooter</h6>   
         </div>    
@@ -169,8 +169,8 @@ const handlefollow = async()=>{
           <div className='followsubdiv'>
            <div>
             <button className='btn likebtn' onClick={handleLike}><i class="fa-regular fa-heart"></i></button>
-              <button className='m-1 followbtn'  onClick={handlefollow}>follow</button>
-             <Link to={'/payment'}> <button className='m-1 subbtn'>suscribe</button></Link>
+            <button className='m-1 followbtn'  onClick={handlefollow}>follow</button>
+             <Link to={'/dashboard'}><button className='m-1 subbtn'>suscribe</button></Link>
            </div>
            <div className='viewersdiv'>
             <h5><i class="fa-solid fa-user"></i> 568</h5>

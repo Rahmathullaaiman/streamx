@@ -1,13 +1,11 @@
 import React from 'react'
 import Browse from '../../components/Browsee/Browse'
-import Game from '../../components/Browsee/GAMES/Game'
-import Creative from '../../components/Browsee/CREATIVE/Creative'
-
+import './style.css'
 function Browsepage() {
   return (
     <>
 
-<div className="home">
+<div className="browsehome">
     <Browse/>
     
 </div>

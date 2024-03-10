@@ -51,6 +51,7 @@ form {
 	flex-direction: column;
 	padding: 0 50px;
 	height: 100%;
+	width: 100%;
 	text-align: center;
     color: white;
 }
@@ -75,10 +76,7 @@ input {
 	transition: all 0.6s ease-in-out;
     background: #000000;
 }
-.inputfield{
-	margin: 10px;
-	padding: 10px;
-}
+
 .sign-in-container {
 	left: 0;
 	width: 50%;
@@ -335,5 +333,46 @@ footer a {
 	text-decoration: none;
   }
   .backtohome:hover{
-	text-decoration: underline;
+	text-decoration: enlight;
   }
+  .group {
+	position: relative;
+	margin-top: 20px;
+	width: 100%;
+   }
+   
+   .group input {
+	color: #ffffff;
+	font-size: 16px;
+	padding: 10px 10px 10px 5px;
+	display: block;
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid #515151;
+	background: transparent;
+   }
+   
+   .input:focus {
+	outline: none;
+   }
+   
+   .group label {
+	color: #999;
+	font-size: 18px;
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	left: 5px;
+	top: 10px;
+	transition: 0.2s ease all;
+	-moz-transition: 0.2s ease all;
+	-webkit-transition: 0.2s ease all;
+   }
+   
+   .input:focus ~ label, .input:valid ~ label {
+	top: -20px;
+	font-size: 18px;
+	color: #00ff04;
+   }
+   
+  

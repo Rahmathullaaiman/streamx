@@ -1,10 +1,10 @@
 import React from 'react'
 import Game from '../../components/Browsee/GAMES/Game'
-
+import './style.css'
 function Browsegamepage() {
   return (
     <>
-<div className="home">
+<div className="browsehome">
     <Game/>
     
 </div>

@@ -9,7 +9,7 @@ function LandingPage() {
   return (
     <>
       <Navbar />
-      <div className='home'>
+      <div className='landingpagehome'>
           <Userhome/>
       </div>
     </>

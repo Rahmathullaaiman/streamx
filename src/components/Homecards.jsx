@@ -209,16 +209,7 @@ function Homecards() {
         </Card.Body>
       </Card>
   
-      <Card className="card2">
-        <Card.Img variant="top" className='cardimg2' src="https://img.freepik.com/free-vector/game-template-with-squirrels-green-grass_1308-97504.jpg?t=st=1709407530~exp=1709411130~hmac=db61082fc68d5244ade818bfd69c313f4ed34b36a3adc6a938bdd8592974c72a&w=360" alt='ERROR 404'/>
-        <Card.Body className='cardbody2'>
-        <h5>live uSBSEFIHBRGB</h5>
-        <div className='d-flex' >
-           <h6>FPS</h6>
-           <h6>Shooter</h6>   
-        </div>    
-        </Card.Body>
-      </Card>
+     
   
       
       </div>
@@ -277,16 +268,7 @@ function Homecards() {
         </Card.Body>
       </Card>
   
-      <Card className="card2">
-        <Card.Img variant="top" className='cardimg2' src="https://img.freepik.com/free-vector/game-template-with-squirrels-green-grass_1308-97504.jpg?t=st=1709407530~exp=1709411130~hmac=db61082fc68d5244ade818bfd69c313f4ed34b36a3adc6a938bdd8592974c72a&w=360" alt='ERROR 404'/>
-        <Card.Body className='cardbody2'>
-        <h5>live uSBSEFIHBRGB</h5>
-        <div className='d-flex' >
-           <h6>FPS</h6>
-           <h6>Shooter</h6>   
-        </div>    
-        </Card.Body>
-      </Card>
+     
   
       
       </div>
