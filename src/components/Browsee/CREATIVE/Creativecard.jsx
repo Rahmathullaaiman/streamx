@@ -9,7 +9,7 @@ function Creativecard() {
 
 
    const Getcategory =async()=>{
-   const id = "5";
+   const id = "14";
       const result = await getCategoryAPI(id)
       if(result.status==200){
           // console.log(result);

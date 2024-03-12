@@ -134,11 +134,11 @@ function Admin() {
       <label className='dropdown' htmlFor="category">Select a category:</label>
       <select id="category" onChange={handleCategoryChange} value={streamDetails.category}>
         <option value="">Select...</option>
-        <option value="1">Games</option>
-        <option value="2">IRL</option>
-        <option value="3">Esports</option>
-        <option value="4">Music</option>
-        <option value="5">Creative</option>
+        <option value="10">Games</option>
+        <option value="11">IRL</option>
+        <option value="13">Esports</option>
+        <option value="12">Music</option>
+        <option value="14">Creative</option>
       </select>
 
 

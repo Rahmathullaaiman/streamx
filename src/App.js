@@ -1,7 +1,6 @@
 
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import LandingPage from './pages/Home/LandingPage';
 import Auth from './components/Authentication/Auth';
 import Browsepage from './pages/Browse/Browsepage';
 import Browsegamepage from './pages/Browse/Browsegamepage';
@@ -15,13 +14,17 @@ import Admin from './pages/Admin/Admin';
 import Payment from './components/payment/Payment';
 import Profile from './pages/User/Profile';
 import UserProfile from './components/User/UserProfile';
-import ChatBar from './pages/User/ChatBar';
+import { Suspense, lazy } from 'react';
+
+const LandingPage = lazy(()=>import("./pages/Home/LandingPage"))
 
 function App() {
   return (
     <div className='app'>
     <Routes>
-    <Route path="/" element={<LandingPage/>}/>
+    <Route path="/" element={<Suspense fallback={<></>}>
+      <LandingPage/>
+    </Suspense>}/>
     <Route path="/authentication" element={<Auth/>}/>
     <Route path="/dashboard" element={<Dashboard/>}/>
     <Route path="/browse" element={<Browsepage/>}/>
@@ -35,7 +38,6 @@ function App() {
     <Route path="/payment/:showuserid" element={<Payment/>}/>
     <Route path="/profileupdate" element={<Profile/>}/>
     <Route path="/userprofile/:showuserid" element={<UserProfile/>}/>
-    <Route path="/livechat" element={<ChatBar/>}/>
     
     </Routes>
      

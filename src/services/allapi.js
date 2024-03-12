@@ -47,3 +47,11 @@ export const searchallAPI = async(searchitem)=>{
 export const subscribeAPI = async(userid,reqBody,reqHeader)=>{
     return await commonAPI("POST",`${BASE_URL}/subcribe/${userid}/`,reqBody,reqHeader)
 }
+
+// comment api
+export const AddchatAPI = async(stream_id,reqBody,reqHeader)=>{
+    return await commonAPI("POST",`${BASE_URL}/createlive/chat/${stream_id}/`,reqBody,reqHeader)
+}
+export const GetchatAPI = async(stream_id)=>{
+    return await commonAPI("GET",`${BASE_URL}/list/live/chat/${stream_id}/`,"","")
+}

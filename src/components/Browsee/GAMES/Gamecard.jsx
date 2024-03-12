@@ -10,7 +10,7 @@ function Gamecard() {
 
 
    const Getcategory =async()=>{
-   const id = "1";
+   const id = "10";
       const result = await getCategoryAPI(id)
       if(result.status==200){
           // console.log(result);

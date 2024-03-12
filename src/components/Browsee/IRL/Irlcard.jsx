@@ -11,7 +11,7 @@ function Irlcard() {
 
 
    const Getcategory =async()=>{
-   const id = "2";
+   const id = "11";
       const result = await getCategoryAPI(id)
       if(result.status==200){
           // console.log(result);

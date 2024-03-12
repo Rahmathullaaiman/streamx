@@ -27,11 +27,11 @@ function Profile() {
     bio: "",
     profile_picture: ""
   })
-  useEffect(() => {
-    if (profileDetails.profile_picture) {
-      setProfilepreview(URL.createObjectURL(profileDetails.profile_picture))
-    }
-  }, [profileDetails.profile_picture])
+    // useEffect(() => {
+    //   if (profileDetails.profile_picture) {
+    //     setProfilepreview(URL.createObjectURL(profileDetails.profile_picture))
+    //   }
+    // }, [profileDetails.profile_picture])
 
   useEffect(() => {
     if (sessionStorage.getItem('existinguser')) {
@@ -43,37 +43,46 @@ function Profile() {
     const result = await getallUsersAPI()
     setallusers(result.data)
   }
-  console.log(token);
+  //console.log(token);
   const searchid = existinguser.id
   const searchkey = 'id'
+
   useEffect(() => {
     const fetchData = async () => {
       await getusers(); // Fetch all users
       const igotuser = allusers.find((user) => user.id === searchid);
       if (igotuser) {
         setCurrentUser(igotuser);
-        setexistingimage(`${BASE_URL}/${currentUser.profile_picture}`)
+        setexistingimage(`${BASE_URL}/${currentUser.profile_picture}`);
       }
     };
-  
     fetchData();
-  }, []);
+  }, [allusers]);
+  
   //console.log(existingimage);
   
-    useEffect(() => {
-     
-      setProfileDetails({
-        first_name:existinguser? existinguser.first_name:"",
-        last_name: existinguser?existinguser.last_name:"",
-        bio:existinguser?existinguser.bio:"",
-        profile_picture:existingimage?existingimage:""
-      });
-      
-    }, [existinguser]);
+  useEffect(() => {
+    // console.log('existinguser:', existinguser);
+    // console.log('currentUser:', currentUser);
+    // console.log('existingimage:', existingimage);
+    setProfileDetails({
+      first_name: existinguser ? existinguser.first_name : "",
+      last_name: existinguser ? existinguser.last_name : "",
+      bio: existinguser ? existinguser.bio : "",
+      profile_picture: existingimage ? existingimage : ""
+    });
+  }, [existinguser, existingimage]);
   
- 
- 
-//console.log(existinguser);
+  useEffect(() => {
+    if (existingimage) {
+      setProfilepreview(existingimage);
+    } else if (profileDetails.profile_picture) {
+      setProfilepreview(URL.createObjectURL(profileDetails.profile_picture));
+    }
+  }, [existingimage, profileDetails.profile_picture]);
+  
+
+console.log(profileDetails);
 
   //update profile
   const handleUpdateprofile = async () => {
@@ -93,24 +102,47 @@ function Profile() {
       const userid = existinguser.id
       if (token) {
 
-        const reqHeader = {
-          "Content-Type": "multipart/form-data",
-          "Authorization": `Bearer ${token}`,
-        };
-        const result = await updateProfileAPI(userid, reqBody, reqHeader)
-        if (result.status == 200) {
-          setLoader(false)
-          toast.success(`profile Updated`)
-          setTimeout(() => {
-            navigate('/dashboard')
-          }, 200);
-          //console.log(result);
+        if(profilepreview){
+          const reqHeader = {
+            "Content-Type": "multipart/form-data",
+            "Authorization": `Bearer ${token}`,
+          };
+          const result = await updateProfileAPI(userid, reqBody, reqHeader)
+          if (result.status == 200) {
+            setLoader(false)
+            toast.success(`profile Updated`)
+            setTimeout(() => {
+              navigate('/dashboard')
+            }, 200);
+            //console.log(result);
+          }
+          else {
+            setLoader(false)
+            toast.error('something went wrong,Try again later')
+            //console.log(result);
+          }
         }
-        else {
-          setLoader(false)
-          toast.error('something went wrong,Try again later')
-          //console.log(result);
+        else{
+          const reqHeader = {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,
+          };
+          const result = await updateProfileAPI(userid, reqBody, reqHeader)
+          if (result.status == 200) {
+            setLoader(false)
+            toast.success(`profile Updated`)
+            setTimeout(() => {
+              navigate('/dashboard')
+            }, 200);
+            //console.log(result);
+          }
+          else {
+            setLoader(false)
+            toast.error('something went wrong,Try again later')
+            //console.log(result);
+          }
         }
+       
 
 
       }
@@ -135,7 +167,7 @@ function Profile() {
             <label class="profile-file-upload">
               <div class="profileaddimage">
                 <img
-                  src={profilepreview ? profilepreview : `${BASE_URL}/${currentUser.profile_picture}`}
+                  src={profilepreview ? profilepreview :`existingimage`}
                   alt=""
                   style={{ width: profilepreview ? '100%' : "" }} />
                 <input id="file"

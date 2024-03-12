@@ -10,7 +10,7 @@ function Esportcard() {
 
    const Getcategory =async()=>{
      
-   const id = "3";
+   const id = "13";
       const result = await getCategoryAPI(id)
       if(result.status==200){
         // console.log(result);

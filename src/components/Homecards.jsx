@@ -141,6 +141,7 @@ function Homecards() {
                   src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079"
                   alt="User"
                   className="user-image"
+                  style={{height:'10px'}}
                 />
         </div>
         <div>
@@ -156,7 +157,12 @@ function Homecards() {
   {/* card 2 */}
   <div className='card-holder2'>
   <Card className="card2">
-        <Card.Img variant="top" className='cardimg2' src="https://img.freepik.com/premium-photo/stunning-mountain-peak_778613-59.jpg?w=360" alt='ERROR 404'/>
+        <Card.Img variant="top"
+         className='cardimg2'
+          src="https://img.freepik.com/premium-photo/stunning-mountain-peak_778613-59.jpg?w=360" 
+          alt='ERROR 404'
+          style={{height:'200px',width:'200px'}}
+          />
         <Card.Body className='cardbody2'>
         <h5>live uSBSEFIHBRGB</h5>
         <div className='d-flex' >
@@ -166,112 +172,11 @@ function Homecards() {
         </Card.Body>
       </Card>
   
-      <Card className="card2">
-        <Card.Img variant="top" className='cardimg2' src="https://img.freepik.com/free-photo/luminous-metaverse-background_23-2149539960.jpg?t=st=1709407324~exp=1709410924~hmac=1c0a62dc390f0d5b665daef431431d53ce7cf0c24884377fa77ddd22e3f88f89&w=740" alt='ERROR 404'/>
-        <Card.Body className='cardbody2'>
-        <h5>live uSBSEFIHBRGB</h5>
-        <div className='d-flex' >
-           <h6>FPS</h6>
-           <h6>Shooter</h6>   
-        </div>    
-        </Card.Body>
-      </Card>
-  
-      <Card className="card2">
-        <Card.Img variant="top" className='cardimg2' src="https://img.freepik.com/free-photo/rise-humanoids-with-advanced-headgear-generative-ai_8829-2877.jpg?t=st=1709407456~exp=1709411056~hmac=7adbaa5090b05e42b4ca18526547a43004d31360ed6393dd5c64f86fd8832268&w=740" alt='ERROR 404'/>
-        <Card.Body className='cardbody2'>
-        <h5>live uSBSEFIHBRGB</h5>
-        <div className='d-flex' >
-           <h6>FPS</h6>
-           <h6>Shooter</h6>   
-        </div>    
-        </Card.Body>
-      </Card>
-  
-      <Card className="card2">
-        <Card.Img variant="top" className='cardimg2' src="https://img.freepik.com/free-vector/retro-gaming-poster-template_52683-50969.jpg?t=st=1709407556~exp=1709411156~hmac=e5fcc0c5bd80a615003c26cfc00fc270f286bf4614acd7587a2e67cb24d12705&w=360" alt='ERROR 404'/>
-        <Card.Body className='cardbody2'>
-        <h5>live uSBSEFIHBRGB</h5>
-        <div className='d-flex' >
-           <h6>FPS</h6>
-           <h6>Shooter</h6>   
-        </div>    
-        </Card.Body>
-      </Card>
-      <Card className="card2">
-        <Card.Img variant="top" className='cardimg2' src="https://img.freepik.com/premium-photo/illustration-gamers-logo-design_779267-1231.jpg?w=740" alt='ERROR 404'/>
-        <Card.Body className='cardbody2'>
-        <h5>live uSBSEFIHBRGB</h5>
-        <div className='d-flex' >
-           <h6>FPS</h6>
-           <h6>Shooter</h6>   
-        </div>    
-        </Card.Body>
-      </Card>
-  
-     
+
   
       
       </div>
-      <div className='card-holder2'>
-  <Card className="card2">
-        <Card.Img variant="top" className='cardimg2' src="https://img.freepik.com/premium-photo/stunning-mountain-peak_778613-59.jpg?w=360" alt='ERROR 404'/>
-        <Card.Body className='cardbody2'>
-        <h5>live uSBSEFIHBRGB</h5>
-        <div className='d-flex' >
-           <h6>FPS</h6>
-           <h6>Shooter</h6>   
-        </div>    
-        </Card.Body>
-      </Card>
-  
-      <Card className="card2">
-        <Card.Img variant="top" className='cardimg2' src="https://img.freepik.com/free-photo/luminous-metaverse-background_23-2149539960.jpg?t=st=1709407324~exp=1709410924~hmac=1c0a62dc390f0d5b665daef431431d53ce7cf0c24884377fa77ddd22e3f88f89&w=740" alt='ERROR 404'/>
-        <Card.Body className='cardbody2'>
-        <h5>live uSBSEFIHBRGB</h5>
-        <div className='d-flex' >
-           <h6>FPS</h6>
-           <h6>Shooter</h6>   
-        </div>    
-        </Card.Body>
-      </Card>
-  
-      <Card className="card2">
-        <Card.Img variant="top" className='cardimg2' src="https://img.freepik.com/free-photo/rise-humanoids-with-advanced-headgear-generative-ai_8829-2877.jpg?t=st=1709407456~exp=1709411056~hmac=7adbaa5090b05e42b4ca18526547a43004d31360ed6393dd5c64f86fd8832268&w=740" alt='ERROR 404'/>
-        <Card.Body className='cardbody2'>
-        <h5>live uSBSEFIHBRGB</h5>
-        <div className='d-flex' >
-           <h6>FPS</h6>
-           <h6>Shooter</h6>   
-        </div>    
-        </Card.Body>
-      </Card>
-  
-      <Card className="card2">
-        <Card.Img variant="top" className='cardimg2' src="https://img.freepik.com/free-vector/retro-gaming-poster-template_52683-50969.jpg?t=st=1709407556~exp=1709411156~hmac=e5fcc0c5bd80a615003c26cfc00fc270f286bf4614acd7587a2e67cb24d12705&w=360" alt='ERROR 404'/>
-        <Card.Body className='cardbody2'>
-        <h5>live uSBSEFIHBRGB</h5>
-        <div className='d-flex' >
-           <h6>FPS</h6>
-           <h6>Shooter</h6>   
-        </div>    
-        </Card.Body>
-      </Card>
-      <Card className="card2">
-        <Card.Img variant="top" className='cardimg2' src="https://img.freepik.com/premium-photo/illustration-gamers-logo-design_779267-1231.jpg?w=740" alt='ERROR 404'/>
-        <Card.Body className='cardbody2'>
-        <h5>live uSBSEFIHBRGB</h5>
-        <div className='d-flex' >
-           <h6>FPS</h6>
-           <h6>Shooter</h6>   
-        </div>    
-        </Card.Body>
-      </Card>
-  
-     
-  
-      
-      </div>
+    
   
 </div>
     </>

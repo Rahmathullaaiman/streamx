@@ -6,6 +6,8 @@ import Homecards from './Homecards';
 import { getallUsersAPI } from '../services/allapi';
 import { BASE_URL } from '../services/baseurl';
 import { Link } from 'react-router-dom';
+import Allcard from './Browsee/Browse/Allcard';
+import Allbrowse from './Browsee/Browse/Allbrowse';
 
 const Userhome = () => {
   
@@ -95,7 +97,7 @@ const Userhome = () => {
           <div className='usercolumn-2' style={{ paddingLeft: `${sidebarWidth}px`, width: `calc(100% - ${sidebarWidth}px)` }}>
             <div className='inner-content'>
               <VideoCarousal />
-              <Homecards />
+           <Homecards/>
             </div>
 
           </div>
