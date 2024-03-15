@@ -55,3 +55,13 @@ export const AddchatAPI = async(stream_id,reqBody,reqHeader)=>{
 export const GetchatAPI = async(stream_id)=>{
     return await commonAPI("GET",`${BASE_URL}/list/live/chat/${stream_id}/`,"","")
 }
+
+//send person 2 person message
+export const sendP2PCHATAPI = async(userid,reqBody,reqHeader)=>{
+    return await commonAPI("POST",`${BASE_URL}/messages/${userid}/`,reqBody,reqHeader)
+}
+
+//list person 2 person message
+export const getP2PCHATAPI = async(userid,reqHeader)=>{
+    return await commonAPI("GET",`${BASE_URL}/messagesallList/${userid}/`,"",reqHeader)
+}

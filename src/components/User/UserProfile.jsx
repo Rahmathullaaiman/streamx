@@ -3,7 +3,7 @@ import Navbar from '../Navbar/Navbar'
 import { Link, useParams } from 'react-router-dom'
 import './userprofile.css'
 import { Card } from 'react-bootstrap'
-import { followUserAPI, getallUsersAPI, likeStreamAPI } from '../../services/allapi'
+import { followUserAPI, getP2PCHATAPI, getallUsersAPI, likeStreamAPI, sendP2PCHATAPI } from '../../services/allapi'
 import { BASE_URL } from '../../services/baseurl'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,20 +15,31 @@ function UserProfile() {
     const [existinguser,setexistinguser] = useState({})
     const [allusers, setallusers] = useState([])
     const [currentUser,setCurrentUser] = useState([])
-    
+    const [Existing_username, setExisting_username] = useState("")
+    const [livechat,setLivechat] = useState([])
+    const rightAlignedMessageClass = 'right-aligned-message';
+      const [takemessage,setTakeMessage] = useState({
+        message:""
+      })
     const userid = showuserid
+    useEffect(()=>{
+      if(sessionStorage.getItem('existinguser')){
+        setexistinguser(JSON.parse(sessionStorage.getItem('existinguser')))
+       }
+    },[])  
+
     useEffect(() => {
-      if (sessionStorage.getItem('existinguser')) {
-        const existinguser = JSON.parse(sessionStorage.getItem('existinguser'));
-        console.log(existinguser);
+      if (existinguser.access) {
         setToken(existinguser.access);
+        setExisting_username(existinguser.username);
       }
-    }, []);
+    }, [existinguser]);
+console.log(token);
     const getusers = async () => {
       const result = await getallUsersAPI()
       setallusers(result.data)
     }
-console.log(allusers);
+
     useEffect(() => {
       getusers();
     }, []);
@@ -43,7 +54,7 @@ console.log(allusers);
  // console.log(currentUser);
 
  
-
+// follow
   const handlefollow = async()=>{
   
     if(token) { 
@@ -67,6 +78,62 @@ console.log(allusers);
       console.error('Session timed out ,please login');
     }
   }
+
+  // chat
+
+// send 
+const handlesend = async()=>{
+const {message} = takemessage
+
+if(!message){
+  toast.warning(`Nothing to Send`)
+}
+else{
+  const reqBody = new FormData()
+  reqBody.append("message",message)
+  
+  if(token){
+    const reqHeader = {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`,
+  };
+  const result = await sendP2PCHATAPI(userid,reqBody,reqHeader)
+   if(result.status==201){
+    toast.success(`success`)
+    
+   }
+   else{
+    toast.error(`failed`)
+   }
+  }
+  else{
+    toast.error(`Session timed out,Please Login`)
+  }
+}
+}
+
+useEffect(() => {
+  const fetchChat = async () => {
+    if (token) {
+
+      const reqHeader = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      };
+      const result = await getP2PCHATAPI(userid, reqHeader);
+      if(result.status==200){
+        
+        const chatbox = document.querySelector(".chatbox");
+        chatbox.scrollTop = chatbox.scrollHeight;
+      }
+      setLivechat(result.data || []);
+    }
+    else{
+     
+    }
+  };
+  fetchChat();
+}, [handlesend]);
   return (
     <>
    <Navbar/>
@@ -89,8 +156,8 @@ console.log(allusers);
 		
 			<li><a href="#1b" data-toggle="tab">Streams</a>
 			</li>
-			{/* <li><a href="#2b" data-toggle="tab"></a>
-			</li> */}
+			<li><a href="#2b" data-toggle="tab">Chats</a>
+			</li>
   	
 		</ul>
 
@@ -110,12 +177,34 @@ console.log(allusers);
 
 				</div>
 			
-        {/* <div class="tab-pane tab-2" id="2b">
-          <h3>We applied clearfix to the tab-content to rid of the gap between the tab and the content</h3>
-				</div> */}
+        <div class="tab-pane tab-2" id="2b">
+   <div className='chatbosx'>
+          
+      <div className='chatbox'>
+      {livechat.map((message, index) => (
+  <div key={index} className={`messages ${message.sender_username === Existing_username ? rightAlignedMessageClass : ''}`}>
+    <div className='messages-content'>
+      <h5 className='sender'>{message.sender_username === Existing_username ? 'me' : message.sender_username}:</h5>
+      <h6>{message.message}</h6>
+    </div>
+  </div>
+))}
+           
+      </div>
+          <div className="message-box">
+            <textarea type="text"
+             className="message-input"
+              placeholder="Type message..."
+              value={takemessage.message}
+              onChange={(e)=>setTakeMessage({...takemessage,message:e.target.value})}
+              ></textarea>
+            <button type="submit" className="message-submit" onClick={handlesend}>Send</button>
+          </div>
+   </div>
+      </div>
+				</div>
   
-			</div>
-
+	
 
 	
           

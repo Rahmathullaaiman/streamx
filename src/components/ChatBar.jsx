@@ -86,6 +86,11 @@ useEffect(()=>{
   const fetchChat = async () => {
   const  Streamid = 1
    const result =  await GetchatAPI(Streamid); // Fetch all chat
+   if(result.status==200){
+    
+    const chatbox = document.querySelector(".messages-area");
+    chatbox.scrollTop = chatbox.scrollHeight;
+   }
 setLivechat(result.data);
   };
   fetchChat();

@@ -156,6 +156,65 @@ color: white;
 }
 .tab-2{
   margin-top: 10px;   
-  background-color: #827373;
-  height: 580px;
+  background-color: #000000;
+  height: 450px;
+  border: 5px solid white;
+  border-radius: 5px;
+}
+.chatbosx{
+  height: 86.5%;
+  
+}
+.chatbox{
+  height: 100%;
+  width: 100%;
+  background-color: #828080;
+overflow: scroll;
+scrollbar-width: none;
+padding: 0px 10px 0px 0px;
+}
+.messages{
+  padding: 20px 0px 0px 30px;
+}
+
+.messages-content h5{
+  color: black;
+}
+.messages-content h6{
+  color: green;
+}
+.message-box{
+  width: 100%;
+  display: flex;
+  border-radius: 5px;
+}
+.message-input{
+  width: 100%;
+  background-color: #000000;
+  color: white;
+}
+.message-submit{
+  width: 100px;
+  border: none;
+  background-color: green;
+  color: rgb(255, 255, 255);
+}
+.message-submit svg{
+  margin-left: -50px;
+  transform: translateX(1.2em) rotate(45deg) scale(1.5);
+}
+
+.message-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Additional styles for message sent by existing user */
+.message-right .message-sent {
+  background-color: #d8f4f4; /* Example background color */
+  /* Add any other styles you need */
+}
+.right-aligned-message {
+  text-align: right;
 }

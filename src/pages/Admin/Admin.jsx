@@ -97,6 +97,9 @@ function Admin() {
            
             
           }
+          else{
+            alert(`please login`)
+          }
         }
       };
       
