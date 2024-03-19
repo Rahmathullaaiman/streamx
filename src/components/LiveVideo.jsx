@@ -1,54 +1,57 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../components/CSS/livevideo.css'
 import '../components/CSS/sidebar.css'
-import '../components/CSS/chat.css'; 
 import demovideo from '../Assest/sample2.mp4'
 import Navbar from './Navbar/Navbar';
-import { followUserAPI, likeStreamAPI } from '../services/allapi';
+import { GetLivestremDetailsAPI, followUserAPI, getallUsersAPI, likeStreamAPI } from '../services/allapi';
 import { Link } from 'react-router-dom';
 import ChatBar from './ChatBar';
+import LiveVIDEOBOX from './LiveVIDEOBOX';
+import { toast } from 'react-toastify';
+import { BASE_URL } from '../services/baseurl';
 
 
 function LiveVideo() {
   const [islive,setislive] = useState(true)
 const [existinguser,setexistinguser] = useState({})
+const [allusers, setallusers] = useState([])
 const [token, setToken] = useState("")
-  
-const [sidebarWidth, setSidebarWidth] = useState(70);
+const [streamid,setstreamid] = useState('')
+const [sidebarWidth, setSidebarWidth] = useState(230);
 const chatbarHeaderRef = useRef(null);
 const sidebarRef = useRef(null);
 const [collapsed, setCollapsed] = useState(false);
+const [liveStreamdetails,setLivestreamDetails] = useState([])
 
-const toggleCollapse = () => {
-  setCollapsed(!collapsed);
-};
-useEffect(() => {
-  const chatbarHeader = chatbarHeaderRef.current;
-  const sidebar = sidebarRef.current;
+// const toggleCollapse = () => {
+//   setCollapsed(!collapsed);
+// };
+// useEffect(() => {
+//   const chatbarHeader = chatbarHeaderRef.current;
+//   const sidebar = sidebarRef.current;
 
-  const handleChatbarHeaderClick = () => {
-    const newWidth = sidebarWidth === 250 ? 70 : 250;
-    setSidebarWidth(newWidth);
-  };
+//   const handleChatbarHeaderClick = () => {
+//     const newWidth = sidebarWidth === 250 ? 70 : 250;
+//     setSidebarWidth(newWidth);
+//   };
 
-  chatbarHeader.addEventListener('click', handleChatbarHeaderClick);
+//   chatbarHeader.addEventListener('click', handleChatbarHeaderClick);
 
-  return () => {
-    chatbarHeader.removeEventListener('click', handleChatbarHeaderClick);
-  };
-}, [sidebarWidth]);
+//   return () => {
+//     chatbarHeader.removeEventListener('click', handleChatbarHeaderClick);
+//   };
+// }, [sidebarWidth]);
 
 useEffect(() => {
   if (sessionStorage.getItem('existinguser')) {
-    const existinguser = JSON.parse(sessionStorage.getItem('existinguser'));
+    setexistinguser(JSON.parse(sessionStorage.getItem('existinguser')))
    // console.log(existinguser);
     setToken(existinguser.access);
   }
 }, []);
 
-//console.log(token);
 const handleLike = async()=>{
-  const id = '4';
+  const id = liveStreamdetails.id
   if(token) { 
   const reqHeader = {
     "Content-Type":"application/json",
@@ -72,7 +75,7 @@ const handleLike = async()=>{
 }
 
 const handlefollow = async()=>{
-  const id = '4';
+  const id = existinguser.id
   if(token) { 
   const reqHeader = {
     "Content-Type":"application/json",
@@ -94,44 +97,71 @@ const handlefollow = async()=>{
     console.error('Token is empty!');
   }
 }
+
+const getliveStreamDetails = async () => {
+  if (token) {
+    const reqHeader = {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+    };
+    const result = await GetLivestremDetailsAPI(reqHeader)
+    if(result.status == 200){
+      setLivestreamDetails(result.data)
+      setstreamid(liveStreamdetails.id)
+    }
+    else{
+      console.log(result);
+    }
+  }
+}
+const getusers = async () => {
+  const result = await getallUsersAPI()
+  setallusers(result.data)
+}
+useEffect(() => {
+  getusers()
+
+  // console.log(allusers);
+},[])
+useEffect(()=>{
+  getliveStreamDetails()
+},[getusers])
   return (
     <>
  <main >
   <Navbar/>
 <section id='one'>
 <div className='column-1'>
-<div className="sidebar" ref={sidebarRef} style={{ width: `${sidebarWidth}px` }}>
+<div className="sidebar" ref={sidebarRef} style={{ width: `${sidebarWidth}px`,backgroundColor:'#343541' }}>
          <div>
          <div className="chatbar-header text-center" ref={chatbarHeaderRef}>
-                <p >
+          <h3 className='text-light'>FOR YOU</h3>
+                {/* <p >
                {sidebarWidth == 250 ? <i className="fas fa-chevron-left text-light ms-3 fs-4"></i>
                   :
-                  <i className="fas fa-chevron-right text-light ms-1 fs-4"></i>}
-                </p>
+                  <i className="fas fa-chevron-left text-light ms-1 fs-4"></i>}
+                </p> */}
               </div>
          </div>
-          <div className="sidebar-content">
-            <div className={`user-info`}>
-              
-          
-                <>
-                  <img
-                    src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?ga=GA1.2.1195849224.1690294079"
-                    alt="User"
-                    className="user-image"
-                  />
-             {sidebarWidth ==250 &&  <div className="user-details">
-               <p style={{fontSize:"20px"}} className="user-name fw-bolder">Abhijith</p>
-               <p className="user-game">Playing: Pubg</p>
-               <p className="user-viewers">Watching 1.2k<span className="live-dot"></span></p>
-             </div>}
-                </>
-              
-            </div>
-          
-             
-            
-          </div>
+         <div className="sidebar-content">
+              {allusers.map((user) => (
+                  <div key={user.id} className={`user-info`}>
+                    <img
+                      src={user.profile_picture?`${BASE_URL}/${user.profile_picture}`:`https://thumbs.dreamstime.com/b/profile-placeholder-image-gray-silhouette-no-photo-person-avatar-default-pic-used-web-design-176391111.jpg`} 
+                      alt='ERROR 404' 
+                      className="user-image"
+                    />
+                   
+                      <div className="user-details">
+
+                     <Link to={`/userprofile/${user.id}`} style={{textDecoration:'none'}}><p style={{ fontSize: "15px" }} className="user-name fw-bolder">{user.username}</p></Link>
+                      </div>
+                   
+    </div>
+                ))}
+
+
+              </div>
         </div>
 </div>
 <div className='column-2' >
@@ -140,25 +170,24 @@ const handlefollow = async()=>{
           <div className='videolivediv'>
             
           <div className='video-div'>
-          <video autoPlay loop>
-            <source src={demovideo } type="video/mp4"/>  
-          </video>
+      <LiveVIDEOBOX/>
           </div>
-            <div className='carousal-userr' style={{ paddingLeft:`${sidebarWidth}px`,width: `calc(100% - ${sidebarWidth}px)` }}>
+            <div className='carousal-userr'>
       <div className='carousal-userimg'>
           <img
-                    src="https://yt3.googleusercontent.com/ytc/AIdro_lHI-F3J_SZzMPkmm2mCexlk42guAnijVPUykJ_jw=s900-c-k-c0x00ffffff-no-rj"
+                    src={liveStreamdetails.profile_picture}
                     alt="User"
                     className="user-imagee ms-1 me-2"
                     height={'80px'}
                     width={'80px'}
                   />
                   <h5 className='live-tagein-img'>Live</h5>
+                  <h5>{liveStreamdetails.username}</h5>
           </div>
           <div className='carousal-userdetails' >
-          <div >
-              <h4>kaztrooo @ 1:30 live</h4>
-              <h6>adfvaf|| o7tfouh @b 34t51345</h6>
+          <div className='livestrdeatils'>
+              <h4>{liveStreamdetails.title}</h4>
+              <h6>{liveStreamdetails.description}</h6>
             <div className='d-flex align-items-center justify-content-center'>  
              <a href="" style={{textDecoration:'none'}} className='text-light'> <h6>pubggg_afena</h6>  </a>   
             <div className='ms-5' >
@@ -168,15 +197,12 @@ const handlefollow = async()=>{
              </div>
           </div>
           <div className='followsubdiv'>
-           <div>
+           <div className='likefollwdiv'>
             <button className='btn likebtn' onClick={handleLike}><i class="fa-regular fa-heart"></i></button>
-            <button className='m-1 followbtn'  onClick={handlefollow}>follow</button>
+           <Link> <button className='m-1 followbtn'  onClick={handlefollow}>follow</button></Link>
              <Link to={'/dashboard'}><button className='m-1 subbtn'>suscribe</button></Link>
            </div>
-           <div className='viewersdiv'>
-            <h5><i class="fa-solid fa-user"></i> 568</h5>
-            <h6>1:10:20</h6>
-           </div>
+           
           </div>
           </div> 
             
@@ -189,16 +215,9 @@ const handlefollow = async()=>{
 <div className='column-2' >
 
 <div className={`chatbar ${collapsed ? 'collapsed' : ''}`}>
-      <div className="chatbar-header" onClick={toggleCollapse}>
-        {collapsed ? (
-          <i className="fas fa-chevron-left"></i>
-        ) : (
-          <i className="fas fa-chevron-right"></i>
-        )}
-      </div>
-     {!collapsed && 
-     <ChatBar/>
-     }
+    
+     <ChatBar streamId={streamid}/>
+     
     </div>
   </div>
 </section>

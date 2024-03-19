@@ -65,3 +65,8 @@ export const sendP2PCHATAPI = async(userid,reqBody,reqHeader)=>{
 export const getP2PCHATAPI = async(userid,reqHeader)=>{
     return await commonAPI("GET",`${BASE_URL}/messagesallList/${userid}/`,"",reqHeader)
 }
+
+//last created api
+export const GetLivestremDetailsAPI = async(reqHeader)=>{
+    return await commonAPI("GET",`${BASE_URL}/last-created-stream/`,"",reqHeader)
+}
